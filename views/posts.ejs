@@ -1,0 +1,14 @@
+<%- include("partials/header.ejs"); %>
+
+<h1>Posts</h1>
+
+<% posts.forEach((post)=>{ %>
+  <% let title = post.title; %>
+  <% let text = post.text; %>
+  <% if(title.length>20) title = title.substr(0,20)+"..."; %>
+  <% if(text.length>100) text = text.substr(0,100)+"..."; %>
+  <h2> <%- title %> </h2>
+  <p> <%- text %> <a  href="posts/<%-post.title.split(" ").join("-")%>">Read More</a> </p>
+<% }); %>
+
+<%- include("partials/footer.ejs"); %>
